@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				@Html.ActionLink("Training Centar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+			</div>
+			<div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (Session["admin"] == "t" && Session["togle"] == "t")
+                    {
+                        <li>@Html.ActionLink("Log Out", "LogOut", "Home")</li>
+                        <a href="https://localhost:44359/Users/Index" class="btn btn-primary btn-lg" style="background-color:black">Add User &raquo;</a>
+                        <a href="https://localhost:44359/Courses/Index" class="btn btn-primary btn-lg" style="background-color:black">Add Course &raquo;</a>
+                    }
+                    else if (Session["togle"] == "t")
+                    {
+                        <li>@Html.ActionLink("Profile", "Profile", "Home")</li>
+                        <li>@Html.ActionLink("Log Out", "LogOut", "Home")</li>
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("SignUp", "SignUp", "Home")</li>
+                    }
+                    <li class="navbar-brand" style="color:#eee;margin-left:50px ;margin-right:50px ">@Session["Email"]</li>
+                </ul>
+			</div>
+		</div>
+	</div>
+	<div class="container body-content">
+		@RenderBody()
+		<hr />
+
+	</div>
+	<footer>
+		<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+	</footer>
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+</body>
+</html>

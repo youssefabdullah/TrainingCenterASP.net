@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<WebApplication1.Models.UserCourse>
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Profile</h2>
+
+<div class="row">
+
+
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-4" style="margin:20px">
+            <div class="card" style="width: 18rem;">
+                <img src="@Url.Content(item.CourseImg)" width="130" height="130" style="border-radius:20px" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title" style="color:black;font-size:large;font-weight:600">@Html.DisplayFor(modelItem => item.CourseName)</h4>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.CourseDes)</p>
+                    <p style="color:midnightblue;font-size:large" class="card-text">@Html.DisplayFor(modelItem => item.CoursePrice) $</p>
+
+
+                </div>
+
+            </div>
+        </div>
+    }
+
+
+
+
+

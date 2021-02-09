@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "SignIn";
+}
+<div class="container" style="width:50%; padding:20px" >
+	<!-- Content here -->
+    <form method="post">
+        <h2 style="color:#808080 ; font-size:40px">Sign In</h2>
+        <hr />
+        <div class="row" style="padding:20px">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="@ViewBag.n1" name="n1">
+        </div>
+        <div class="row" style="padding:20px">
+            <label for="exampleFormControlInput1" class="form-label">Password</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Password" value="@ViewBag.n2" name="n2">
+        </div>
+        <input type="submit" />
+        <input type="text" value="@ViewBag.r" />
+    </form>
+</div>
+
+

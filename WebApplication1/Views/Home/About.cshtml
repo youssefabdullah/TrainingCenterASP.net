@@ -1,0 +1,26 @@
+﻿@model WebApplication1.Models.Course
+
+@{
+    
+}
+<div >
+    <div class="img" style="text-align:center">
+        <img src="@Url.Content(Model.CourseImg)" style="width:350px;height:350px;border-radius:50%" />
+    </div>
+    <h1>@Html.DisplayFor(model => model.CourseName)</h1>
+    <p class="lead">@Html.DisplayFor(model => model.CourseDes)</p>
+    
+    <p class="btn btn-primary btn-lg" style="background-color:black;">
+        @Html.ActionLink("Book", "Book",
+       new
+       {
+           courseId = Html.DisplayFor(model => model.CourseID),
+           CourseDes = Html.DisplayFor(model => model.CourseDes),
+           CourseImg = Html.DisplayFor(model => model.CourseImg),
+           CoursePrice = Html.DisplayFor(model => model.CoursePrice),
+           CourseName = Html.DisplayFor(model => model.CourseName),
+       })
+    </p>
+    
+</div>
+

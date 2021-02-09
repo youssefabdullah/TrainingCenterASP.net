@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication1.Models.Course>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<div id="myCarousel" class="carousel slide" data-ride="carousel" >
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="~/img/312a8af386312ac7c1b5300049d61cd6.jpg" alt="Los Angeles" style="width:100%">
+        </div>
+        <div class="item">
+            <img src="~/img/css.jpg" alt="Los Angeles" style="width:100%">
+        </div>
+        <div class="item ">
+            <img src="~/img/images (1).jpg" alt="Los Angeles" style="width:100%">
+        </div>
+
+        <div class="item">
+            <img src="~/img/images.jpg" alt="Chicago" style="width:100%">
+        </div>
+
+        <div class="item">
+            <img src="~/img/training_center5.jpg" alt="New York" style="width:100%">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<div class="row">
+    
+
+    @foreach (var item in Model)
+    {
+        
+        <div class="col-md-3" style="margin:10px; background-color:black">
+            <div class="card" style="width: 18rem;background-color:black;">
+                <img src="@Url.Content(item.CourseImg)" width="130" height="130" style="border-radius:20px" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title" style="color:white;font-size:large;font-weight:600">@Html.DisplayFor(modelItem => item.CourseName)</h4>
+                    <p class="card-text"style="color:#eee">@Html.DisplayFor(modelItem => item.CourseDes)</p>
+                    <p style="color:burlywood;font-size:large" class="card-text">@Html.DisplayFor(modelItem => item.CoursePrice) $</p>
+
+                    <p class="btn btn-primary btn-lg" style="background-color:black;"> @Html.ActionLink("Book", "About", new { id = item.CourseID })</p>
+                </div>
+
+            </div>
+        </div>
+    }
+
+
+</div>

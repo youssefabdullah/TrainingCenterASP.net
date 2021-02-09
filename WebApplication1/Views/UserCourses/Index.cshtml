@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication1.Models.UserCourse>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p class="btn btn-default" style="color:white; background-color:black">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseImg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseDes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoursePrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseImg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseDes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoursePrice)
+        </td>
+        <td>
+            <p class="btn btn-default" style="color:white; background-color:black">
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserId })
+            </p> |
+            <p class="btn btn-default" style="color:white; background-color:black">
+                @Html.ActionLink("Details", "Details", new { id = item.UserId })
+            </p> |
+            <p class="btn btn-default" style="color:white; background-color:black">
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+                </p>
+        </td>
+    </tr>
+}
+
+</table>
